@@ -24,7 +24,7 @@
             return {
                 isActive: false,
                 question: {
-                    content: "问题",
+                    content: "默认无边框 dotted: 定义一个点线边框 dashed: 定义一个虚线边框个虚线边框个虚线边框",
                     choices: [
                         "A. 选项1",
                         "B. 选项2",
@@ -57,7 +57,8 @@
         .tQuestion {
             margin: 0 auto;
             text-align: center;
-            font-size: 80rpx;
+            width: 80%;
+            font-size: 60rpx;
             font-family: dingding;
         }
 
