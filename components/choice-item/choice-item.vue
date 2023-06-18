@@ -30,9 +30,10 @@
 
 <style lang="scss">
     .ctx {
-        font-size: 30rpx;
+        font-size: 50rpx;
         border-radius: 20rpx;
-        //border: 1px solid black;
+        background-color: #ffffff;
+        padding: 10rpx;
 
         &.active {
             background-color: #ff0000

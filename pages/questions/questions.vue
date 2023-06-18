@@ -1,6 +1,10 @@
 <template>
     <view class="main">
+        <view class="topBlock"></view>
         <view class="tQuestion">{{question.content}}</view>
+        <view class="process">
+            <u-line-progress :percentage="30" height="30rpx"></u-line-progress>
+        </view>
         <view class="choices">
             <view v-for="choice in question.choices">
                 <view class="ch">
@@ -9,7 +13,7 @@
             </view>
         </view>
         <view class="tPreButton">
-            <u-button type="primary" text="上一题"></u-button>
+            <u-button type="primary" color="black" text="上一题"></u-button>
         </view>
     </view>
 </template>
@@ -22,12 +26,13 @@
                 question: {
                     content: "问题",
                     choices: [
-                        "选项1",
-                        "选项2",
-                        "选项3",
-                        "选项4"
+                        "A. 选项1",
+                        "B. 选项2",
+                        "C. 选项3",
+                        "D. 选项4"
                     ]
-                }
+                },
+                title: String.fromCharCode(66)
             };
         }
     }
@@ -35,23 +40,41 @@
 
 <style lang="scss">
     .main {
-        background-image: url("../../static/images/bg-img.png");
+        //background-image: url("../../static/images/bg-1.jpg");
+        background-color: #ffaa7f;
         height: 100vh;
+
+        .topBlock {
+            height: 15%;
+        }
+
+        .process {
+            margin: 20rpx auto;
+            width: 90%;
+            //border: 5px solid red;
+        }
 
         .tQuestion {
             margin: 0 auto;
             text-align: center;
-        }
-
-        .tPreButton {
-            width: 15%;
-            margin: 10rpx 10%;
+            font-size: 80rpx;
+            font-family: dingding;
         }
 
         .choices {
+            margin: 30rpx;
+            //border: 5px solid red;
+            width: 90%;
+
             .ch {
-                margin: 10rpx 10%;
+                margin: 50rpx 10rpx;
             }
+        }
+
+        .tPreButton {
+            width: 45%;
+            margin: 5rpx 5%;
+            //border: 5px solid red;
         }
     }
 </style>
