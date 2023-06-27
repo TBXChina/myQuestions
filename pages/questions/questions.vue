@@ -1,19 +1,18 @@
 <template>
     <view class="main">
         <view class="topBlock"></view>
-        <view class="tQuestion">{{question.content}}</view>
+        <view class="tQuestion">{{questions[questionNo].content}}</view>
         <view class="process">
             <u-line-progress :percentage="30" height="30rpx"></u-line-progress>
         </view>
         <view class="choices">
-            <view v-for="choice in question.choices">
-                <view class="ch">
-                    <choice-item :content="choice" :isActive="isActive"></choice-item>
-                </view>
-            </view>
+            <choice-list :choices="questions[questionNo].choices"></choice-list>
         </view>
         <view class="tPreButton">
-            <u-button type="primary" color="black" text="上一题"></u-button>
+            <u-button type="primary" color="black" text="上一题" @click="preClick"></u-button>
+        </view>
+        <view class="tPreButton">
+            <u-button type="primary" color="black" text="下一题" @click="nextClick"></u-button>
         </view>
     </view>
 </template>
@@ -22,18 +21,39 @@
     export default {
         data() {
             return {
-                isActive: false,
-                question: {
-                    content: "默认无边框 dotted: 定义一个点线边框 dashed: 定义一个虚线边框个虚线边框个虚线边框",
-                    choices: [
-                        "A. 选项1",
-                        "B. 选项2",
-                        "C. 选项3",
-                        "D. 选项4"
-                    ]
-                },
-                title: String.fromCharCode(66)
+                questionNo: 0,
+                questions: [{
+                        content: "默认无边框 dotted: 定义一个点线边框 dashed: 定义一个虚线边框个虚线边框个虚线边框",
+                        choices: [
+                            "选项1",
+                            "选项2",
+                            "选项3",
+                            "选项4"
+                        ]
+                    },
+                    {
+                        content: "第二个问题",
+                        choices: [
+                            "第二个问题选项1",
+                            "第二个问题选项2",
+                            "第二个问题选项3",
+                            "第二个问题选项4"
+                        ]
+                    }
+                ]
             };
+        },
+        methods: {
+            preClick() {
+                if (this.questionNo > 0) {
+                    this.questionNo = this.questionNo - 1;
+                }
+            },
+            nextClick() {
+                if (this.questionNo < this.questions.length) {
+                    this.questionNo = this.questionNo + 1;
+                }
+            }
         }
     }
 </script>
@@ -63,13 +83,9 @@
         }
 
         .choices {
-            margin: 30rpx;
+            margin: 30rpx auto;
             //border: 5px solid red;
-            width: 90%;
-
-            .ch {
-                margin: 50rpx 10rpx;
-            }
+            width: 95%;
         }
 
         .tPreButton {
