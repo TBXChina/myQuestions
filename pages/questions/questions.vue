@@ -6,7 +6,8 @@
             <u-line-progress :percentage="30" height="30rpx"></u-line-progress>
         </view>
         <view class="choices">
-            <choice-list :choices="questions[questionNo].choices"></choice-list>
+            <choice-list :choices="questions[questionNo].choices"
+                @clickChoicEvent="processClickChoicEvent"></choice-list>
         </view>
         <view class="tPreButton">
             <u-button type="primary" color="black" text="上一题" @click="preClick"></u-button>
@@ -53,6 +54,9 @@
                 if (this.questionNo < this.questions.length) {
                     this.questionNo = this.questionNo + 1;
                 }
+            },
+            processClickChoicEvent(index) {
+                console.log(index)
             }
         }
     }

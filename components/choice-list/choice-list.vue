@@ -1,7 +1,7 @@
 <template>
     <view class="choice-list">
-        <view v-for="content in choices">
-            <view class="choice">
+        <view v-for="(content, index) in choices">
+            <view class="choice" :class="index == activeNo ? 'active': ''" @click="clickChoice(index)">
                 {{content}}
             </view>
         </view>
@@ -17,12 +17,23 @@
                 default () {
                     return []
                 }
+            },
+            activeNo: {
+                type: Number,
+                default () {
+                    return -1;
+                }
             }
         },
         data() {
             return {
                 alphabetNumber: 65, //A对应的数字，方便递增 String.fromCharCode(65)
             };
+        },
+        methods: {
+            clickChoice(index) {
+                this.$emit("clickChoicEvent", index)
+            }
         }
     }
 </script>
