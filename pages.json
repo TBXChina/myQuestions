@@ -11,6 +11,12 @@
             "style": {
                 "navigationStyle": "custom"
             }
+        }, {
+            "path": "pages/report/report",
+            "style": {
+                "navigationStyle": "custom"
+            }
+
         }
     ],
     "globalStyle": {
