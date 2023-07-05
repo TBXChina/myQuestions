@@ -28,7 +28,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .ctx {
         font-size: 50rpx;
         border-radius: 20rpx;

@@ -16,7 +16,11 @@
             "style": {
                 "navigationStyle": "custom"
             }
-
+        }, {
+            "path": "pages/pay/pay",
+            "style": {
+                "navigationStyle": "custom"
+            }
         }
     ],
     "globalStyle": {

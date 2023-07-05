@@ -90,7 +90,10 @@
             pickChoice(index) {
                 this.ansRecords[this.questionNo] = index;
                 this.$forceUpdate();
-                this.nextQuestion()
+                setTimeout(() => {
+                    this.nextQuestion()
+                }, 100)
+
             },
             calPercent() {
                 return Math.floor((this.questionNo + 1) * 100 / this.questions.length);
@@ -110,7 +113,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .main {
         //background-image: url("../../static/images/bg-1.jpg");
         background-color: #ffaa7f;
@@ -135,7 +138,7 @@
             font-family: dingding;
             align-items: center;
             justify-content: center;
-            border: 5px solid red;
+            //border: 5px solid red;
         }
 
         .tChoices {
